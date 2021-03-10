@@ -29,9 +29,9 @@ jobs:
       - run: |
           cp /tmp/workspace/webappdemo .
           TAG=0.1.$CIRCLE_BUILD_NUM
-          docker build -t n3rV3/circleci-webappdemo:$TAG .
+          docker build -t n3rv3/circleci-webappdemo:$TAG .
           echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-          docker push n3rV3/circleci-webappdemo:$TAG
+          docker push n3rv3/circleci-webappdemo:$TAG
   GenerateYAML:
     docker:
       - image: cimg/base:2020.06
@@ -45,7 +45,7 @@ jobs:
           cp /tmp/workspace/deployment.yaml .
           sed -i 's/\(circleci-webappdemo\)\(.*\)/\1:'$TAG'/' ./deployment.yaml
           git config credential.helper 'cache --timeout=120'
-          git config user.email "CircleCI@n3rV3.co.uk"
+          git config user.email "CircleCI@n3rv3.co.uk"
           git config user.name "CircleCI"
           git add .
           git commit -m "Update via CircleCI"
