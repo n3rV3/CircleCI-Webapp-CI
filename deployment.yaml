@@ -36,6 +36,6 @@ spec:
     spec:
       containers:
       - name: webapp-demo
-        image: n3rv3/circleci-webappdemo:$TAG
+        image: 082971727038.dkr.ecr.us-east-2.amazonaws.com/n3rv3:$TAG
         ports:
         - containerPort: 80

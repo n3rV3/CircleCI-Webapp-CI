@@ -27,11 +27,12 @@ jobs:
       - attach_workspace:
           at: /tmp/workspace
       - run: |
+          set -xv
           cp /tmp/workspace/webappdemo .
           TAG=0.1.$CIRCLE_BUILD_NUM
-          docker build -t n3rv3/circleci-webappdemo:$TAG .
-          echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-          docker push n3rv3/circleci-webappdemo:$TAG
+          docker build -t 082971727038.dkr.ecr.us-east-2.amazonaws.com/n3rv3:$TAG .
+          echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin 082971727038.dkr.ecr.us-east-2.amazonaws.com
+          docker push 082971727038.dkr.ecr.us-east-2.amazonaws.com/n3rv3:$TAG
   GenerateYAML:
     docker:
       - image: cimg/base:2020.06
