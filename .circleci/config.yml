@@ -41,7 +41,7 @@ jobs:
           at: /tmp/workspace
       - run : |
           TAG=0.1.$CIRCLE_PREVIOUS_BUILD_NUM
-          git clone https://github.com/David-VTUK/CircleCI-Webapp-CD /tmp/CircleCI-Webapp-CD
+          git clone https://github.com/n3rV3/CircleCI-Webapp-CD.git /tmp/CircleCI-Webapp-CD
           cd /tmp/CircleCI-Webapp-CD
           cp /tmp/workspace/deployment.yaml .
           sed -i 's/\(circleci-webappdemo\)\(.*\)/\1:'$TAG'/' ./deployment.yaml
@@ -51,7 +51,7 @@ jobs:
           git add .
           git commit -m "Update via CircleCI"
           # Push quietly to prevent showing the token in log
-          git push -q https://$GITHUB_PERSONAL_TOKEN@github.com/David-VTUK/CircleCI-Webapp-CD.git master
+          git push -q https://$GITHUB_PERSONAL_TOKEN@github.com/n3rV3/CircleCI-Webapp-CD.git master
 
 workflows:
   version: 2
