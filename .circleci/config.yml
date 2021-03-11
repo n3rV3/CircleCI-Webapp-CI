@@ -44,7 +44,7 @@ jobs:
           git clone https://github.com/n3rV3/CircleCI-Webapp-CD.git /tmp/CircleCI-Webapp-CD
           cd /tmp/CircleCI-Webapp-CD
           cp /tmp/workspace/deployment.yaml .
-          sed -i 's/\(circleci-webappdemo\)\(.*\)/\1:'$TAG'/' ./deployment.yaml
+          sed -i -e "s/(circleci-webappdemo)(.*)/\1:$TAG/" ./deployment.yaml
           git config credential.helper 'cache --timeout=120'
           git config user.email "CircleCI@n3rv3.co.uk"
           git config user.name "CircleCI"
