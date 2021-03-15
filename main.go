@@ -9,7 +9,8 @@ import (
 func helloWorld(w http.ResponseWriter, r *http.Request) {
     config_map_update := os.Getenv("CONFIG_VERSION")
     image_version := os.Getenv("IMAGE_VERSION")
-    fmt.Fprintf(w, "Test CI Webserver\nconfig version: %s\nimage version: %s", config_map_update, image_version)
+    fmt.println("\nconfig version: %s\nimage version: %s", config_map_update, image_version')
+    fmt.Fprintf(w, "Test CI Webserver")
 }
 
 func main() {
